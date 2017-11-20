@@ -1,0 +1,515 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (orientation: portrait) {
+    html {
+        position: absolute;
+        width: 100vh;
+        height: 100vw;
+        overflow: hidden;
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -moz-transform-origin: top left;
+        -ms-transform-origin: top left;
+        -webkit-transform-origin: top left;
+        transform-origin: top left;
+        left: 100%;
+    }
+}
+
+.cssload-wrap * {
+    color: rgb(255, 255, 255);
+}
+
+.cssload-wrap {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -78px;
+    z-index: 99;
+}
+
+.cssload-bg {
+    padding: 29px 29px 29px 0;
+    background: rgba(0, 0, 0, .6);
+    border-radius: 0 0 4px 4px;
+}
+
+.cssload-loading {
+    position: relative;
+    text-align: right;
+    text-shadow: 0 0 6px rgb(188, 228, 255);
+    height: 19px;
+    width: 146px;
+}
+
+.cssload-loading span {
+    display: block;
+    text-transform: uppercase;
+    position: absolute;
+    right: 29px;
+    height: 19px;
+    width: 195px;
+    line-height: 19px;
+}
+
+.cssload-loading span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -2px;
+    right: -20px;
+    height: 19px;
+    width: 10px;
+    background: rgb(234, 247, 255);
+    box-shadow: 0 0 15px rgb(188, 228, 255);
+    -o-box-shadow: 0 0 15px rgb(188, 228, 255);
+    -ms-box-shadow: 0 0 15px rgb(188, 228, 255);
+    -webkit-box-shadow: 0 0 15px rgb(188, 228, 255);
+    -moz-box-shadow: 0 0 15px rgb(188, 228, 255);
+    animation: cssload-blink 3.91s infinite;
+    -o-animation: cssload-blink 3.91s infinite;
+    -ms-animation: cssload-blink 3.91s infinite;
+    -webkit-animation: cssload-blink 3.91s infinite;
+    -moz-animation: cssload-blink 3.91s infinite;
+}
+
+@-ms-keyframes cssload-fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes cssload-fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes cssload-fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes cssload-blink {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    85% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-o-keyframes cssload-blink {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    85% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-ms-keyframes cssload-blink {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    85% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes cssload-blink {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    85% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes cssload-blink {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    55% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    85% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: #00789c;
+}
+
+.controls {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+}
+
+.controls div {
+    width: 100%;
+    height: 25%;
+    margin: 35% 0;
+    background: rgba(0, 0, 0, .5);
+    transition: all 0.1s;
+    cursor: pointer;
+    color: #fff;
+    line-height: 3;
+    text-align: center;
+    border-radius: 0 4px 4px 0;
+    font-weight: 700;
+    font-size: 38px;
+    position: relative;
+}
+
+.controls div:after {
+    display: block;
+    opacity: 0;
+    transition: all 0.2s;
+    width: auto;
+    white-space: nowrap;
+    content: attr(data-title);
+    position: absolute;
+    left: -300px;
+    bottom: 60px;
+    z-index: 9999;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 0 4px 4px 0;
+}
+
+.controls div:hover:after {
+    left: 0;
+    bottom: 15px;
+    opacity: 1;
+}
+
+.controls div.active,
+.controls div:hover {
+    color: #ff0;
+    background: rgba(0, 0, 0, 0.6);
+    width: 120%;
+}
+
+.controls div.active {
+    cursor: default;
+}
