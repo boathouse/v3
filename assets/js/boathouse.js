@@ -14,7 +14,7 @@ b4w.register("boathouse", function (exports, require) {
     var current = null;
     var loader;
     
-    m_cfg.set("quality", m_cfg.P_LOW);
+    m_cfg.set("quality", m_cfg.P_HIGH);
 
     exports.init = function () {
         m_app.init({
