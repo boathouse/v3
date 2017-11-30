@@ -1,139 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Boat3d</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <style>
-            body {
-                font-family: Monospace;
-                 background: #4096ee;
-    background: -moz-linear-gradient(top, #4096ee 0%, #819895 100%);
-    background: -webkit-linear-gradient(top, #4096ee 0%,#819895 100%);
-    background: linear-gradient(to bottom, #4096ee 0%,#819895 100%);
-                margin: 0px;
-                overflow: hidden;
-            }
-
-            #info {
-                color: #fff;
-                position: absolute;
-                top: 10px;
-                width: 100%;
-                text-align: center;
-                z-index: 100;
-                display:block;
-
-            }
-
-            a { color: white }
-        </style>
-    </head>
-    <body>
-        
-
-        <script src="v4/js/three.min.js"></script>
-
-        <script src="v4/js/OrbitControls.js"></script>
-
-        <script src="v4/js/SEA3D.js"></script>
-        <script src="v4/js/SEA3DLZMA.js"></script>
-        <script src="v4/js/SEA3DLoader.js"></script>
-
-        <script src="v4/js/Detector.js"></script>
-        <script src="v4/js/stats.min.js"></script>
-
-        <script>
-
-            if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-
-            var container, stats;
-
-            var camera, scene, renderer, controls;
-
-            var loader;
-
-            init();
-
-
-            loader = new THREE.SEA3D( {
-
-                container : scene 
-
-            } );
-
-            loader.onComplete = function( e ) {
-
-                var cam = loader.getCamera( "Camera_1" );
-                camera.position.copy( cam.position );
-                camera.rotation.copy( cam.rotation );
-
-                controls = new THREE.OrbitControls( camera );
-                
-
-
-                animate();
-
-            };
-
-            loader.load( 'v4/models/untitled.tjs.sea' );
-
-     
-
-            function init() {
-
-                scene = new THREE.Scene();
-
-                container = document.createElement( 'div' );
-                document.body.appendChild( container );
-
-                camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-                camera.position.set( 1000, - 300, 1000 );
-
-                renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-                renderer.setPixelRatio( window.devicePixelRatio );
-                renderer.setSize( window.innerWidth, window.innerHeight );
-                container.appendChild( renderer.domElement );
-
-                stats = new Stats();
-                container.appendChild( stats.dom );
-
-                window.addEventListener( 'resize', onWindowResize, false );
-
-            }
-
-
-            function onWindowResize() {
-
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-
-                renderer.setSize( window.innerWidth, window.innerHeight );
-
-            }
-
-
-            var clock = new THREE.Clock();
-
-            function animate() {
-
-                var delta = clock.getDelta();
-
-                requestAnimationFrame( animate );
-
-                THREE.SEA3D.AnimationHandler.update( delta );
-
-                render( delta );
-
-                stats.update();
-
-            }
-
-            function render( dlt ) {
-
-                renderer.render( scene, camera );
-            }
-
-        </script>
-    </body>
+   <head>
+      <title>Boat3d</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+      <style>
+         body {
+         font-family: Arial, Helvetica, sans-serif;
+         background: #4096ee;
+         background: -moz-linear-gradient(top, #4096ee 0%, #819895 100%);
+         background: -webkit-linear-gradient(top, #4096ee 0%,#819895 100%);
+         background: linear-gradient(to bottom, #4096ee 0%,#819895 100%);
+         margin: 0px;
+         overflow: hidden;
+         }
+         #info {
+         color: #fff;
+         position: absolute;
+         top: 10px;
+         width: 100%;
+         text-align: center;
+         font-size:18px;
+         z-index: 100;
+         display:block;
+         }
+         a { color: white }
+      </style>
+   </head>
+   <body>
+      <div id="info">LOADING...</div>
+      <script src="v4/js/three.min.js"></script>
+      <script src="v4/js/OrbitControls.js"></script>
+      <script src="v4/js/SEA3D.js"></script>
+      <script src="v4/js/SEA3DLZMA.js"></script>
+      <script src="v4/js/SEA3DLoader.js"></script>
+      <script src="v4/js/Detector.js"></script>
+      <script src="v4/js/stats.min.js"></script>
+      <script>
+         if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+         
+         var container, stats;
+         
+         var camera, scene, renderer, controls;
+         
+         var loader;
+         
+         init();
+         
+         
+         loader = new THREE.SEA3D( {
+         
+             container : scene 
+         
+         } );
+         
+         loader.onComplete = function( e ) {
+         
+             var cam = loader.getCamera( "Camera_1" );
+             camera.position.copy( cam.position );
+             camera.rotation.copy( cam.rotation );
+         
+             controls = new THREE.OrbitControls( camera );
+             controls.enableDamping = true;
+             controls.dampingFactor = 0.2;
+             controls.zoomSpeed = 0.4;
+             controls.rotateSpeed = 0.3;
+             controls.autoRotate = false;
+             controls.autoRotateSpeed = 2.0;
+             
+             document.getElementById("info").style.display = "none";
+         
+         
+             animate();
+         
+         };
+         
+         loader.load( 'v4/models/untitled.tjs.sea' );
+         
+         
+         
+         function init() {
+         
+             scene = new THREE.Scene();
+         
+             container = document.createElement( 'div' );
+             document.body.appendChild( container );
+         
+             camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+             camera.position.set( 1000, - 300, 1000 );
+         
+             renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+             renderer.setPixelRatio( window.devicePixelRatio );
+             renderer.setSize( window.innerWidth, window.innerHeight );
+             container.appendChild( renderer.domElement );
+         
+             stats = new Stats();
+             container.appendChild( stats.dom );
+         
+             window.addEventListener( 'resize', onWindowResize, false );
+         
+         }
+         
+         
+         function onWindowResize() {
+         
+             camera.aspect = window.innerWidth / window.innerHeight;
+             camera.updateProjectionMatrix();
+         
+             renderer.setSize( window.innerWidth, window.innerHeight );
+         
+         }
+         
+         
+         var clock = new THREE.Clock();
+         
+         function animate() {
+         
+             var delta = clock.getDelta();
+         
+             requestAnimationFrame( animate );
+         
+             THREE.SEA3D.AnimationHandler.update( delta );
+         
+             render( delta );
+         
+             controls.update();
+         
+             stats.update();
+         
+         }
+         
+         function render( dlt ) {
+         
+             renderer.render( scene, camera );
+         }
+         
+      </script>
+   </body>
 </html>
