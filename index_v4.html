@@ -3,41 +3,55 @@
    <head>
       <title>Boat3d</title>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
       <style>
-         body {
-         font-family: Arial, Helvetica, sans-serif;
-         background: #4096ee;
-         background: linear-gradient(to bottom, #4096ee 0%,#819895 67%,#5d6d6a 100%);
-         margin: 0px;
-         overflow: hidden;
-         }
-         #info {
-         color: #fff;
-         position: absolute;
-         top: 10px;
-         width: 100%;
-         text-align: center;
-         font-size:18px;
-         z-index: 100;
-         display:block;
-         }
-         a { color: white }
+        * {
+            margin:0;
+            padding:0
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #4096ee;
+            background: -webkit-linear-gradient(#4096ee 0%, #819895 67%, #5d6d6a 100%);
+            background: -o-linear-gradient(#4096ee 0%, #819895 67%, #5d6d6a 100%);
+            background: linear-gradient(#4096ee 0%, #819895 67%, #5d6d6a 100%);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -o-user-select: none
+        }
+
+        #info {
+            color: #fff;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            font-size:18px;
+            z-index: 100;
+            display:block
+        }
       </style>
    </head>
    <body>
+   
       <div id="info">LOADING...</div>
+
       <script src="v4/js/three.min.js"></script>
-      <script src="v4/js/OrbitControls.js"></script>
-      <script src="v4/js/SEA3D.js"></script>
-      <script src="v4/js/SEA3DLZMA.js"></script>
-      <script src="v4/js/SEA3DLoader.js"></script>
-      <script src="v4/js/Detector.js"></script>
-      <script src="v4/js/stats.min.js"></script>
+
       <script>
+
+        // function testme(){
+        //     alert(window.parent.onw3d_model);
+        // }
+
          if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
          
-         var container, stats;
+         var container, stats, composer, pass;
          
          var camera, scene, renderer, controls;
          
@@ -64,73 +78,67 @@
              controls.zoomSpeed = 0.4;
              controls.rotateSpeed = 0.3;
              controls.autoRotate = true;
-             controls.autoRotateSpeed = 0.1;
+             controls.autoRotateSpeed = 0.2;
              
              document.getElementById("info").style.display = "none";
-         
+
+             //console.log(scene.children);
          
              animate();
-         
          };
          
          loader.load( 'v4/models/untitled.tjs.sea' );
          
-         
-         
          function init() {
          
              scene = new THREE.Scene();
+             //scene.background = new THREE.Color( 0xffffff );
+             //scene.fog = new THREE.Fog( 0xffffff, 1000, 4000 );
          
              container = document.createElement( 'div' );
+             //container.setAttribute("id", "onw3d_container");
              document.body.appendChild( container );
+
+             var width = window.innerWidth;
+             var height = window.innerHeight;
          
-             camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-             camera.position.set( 1000, - 300, 1000 );
+             camera = new THREE.PerspectiveCamera( 45, width / height, 1, 10000 );
+             //camera.position.set( 1000, - 300, 1000 );
          
              renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+             renderer.antialias = true;
              renderer.setPixelRatio( window.devicePixelRatio );
-             renderer.setSize( window.innerWidth, window.innerHeight );
+             renderer.setSize( width, height );
              container.appendChild( renderer.domElement );
          
              stats = new Stats();
              container.appendChild( stats.dom );
          
              window.addEventListener( 'resize', onWindowResize, false );
-         
          }
          
          
          function onWindowResize() {
+
+             var width = window.innerWidth;
+             var height = window.innerHeight;
          
-             camera.aspect = window.innerWidth / window.innerHeight;
+             camera.aspect = width / height;
              camera.updateProjectionMatrix();
          
-             renderer.setSize( window.innerWidth, window.innerHeight );
-         
+             renderer.setSize( width, height );
          }
          
-         
-         var clock = new THREE.Clock();
          
          function animate() {
          
-             var delta = clock.getDelta();
-         
              requestAnimationFrame( animate );
          
-             THREE.SEA3D.AnimationHandler.update( delta );
-         
-             render( delta );
+             renderer.render( scene, camera );
          
              controls.update();
-         
+
              stats.update();
-         
-         }
-         
-         function render( dlt ) {
-         
-             renderer.render( scene, camera );
          }
          
       </script>
