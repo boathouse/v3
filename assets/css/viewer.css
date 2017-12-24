@@ -1,0 +1,73 @@
+        * {
+            margin:0;
+            padding:0
+        }
+
+        html { 
+            height: 100%; 
+        } 
+
+        body { 
+            min-height: 100%; 
+            font-family: Arial, Helvetica, sans-serif;
+            background: #4096ee;
+            background: -webkit-linear-gradient(#4096ee 0%, #819895 67%, #5d6d6a 100%);
+            background: -o-linear-gradient(#4096ee 0%, #819895 67%, #5d6d6a 100%);
+            background: linear-gradient(#4096ee 0%, #819895 67%, #5d6d6a 100%);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -o-user-select: none
+        }
+
+        #info {
+            color: #fff;
+            width:100%;
+            z-index: 100;
+            display:block;
+            position: absolute;
+            top: 0;
+            left:0;
+        }
+
+        #info b{
+            position: absolute;
+            top: 10px;
+            left:50%;
+            margin-left:-50px;
+            width: 100px;
+            text-align: left;
+            font-size:18px;
+            display:block;
+            white-space: nowrap;
+        }
+
+        #info b:before {
+            content: 'LOADING';
+        }
+
+        #info b:after {
+          display: inline-block;
+          animation: dotty steps(1,end) 1s infinite;
+          content: '';
+        }
+
+        #info i {
+            display:block;
+            text-align: center;
+            white-space: nowrap;
+            font-size:14px;
+            font-style: normal;
+            margin-top:40px;
+        }
+
+        @keyframes dotty {
+          0%   { content: ''; }
+          25%  { content: '.'; }
+          50%  { content: '..'; }
+          75%  { content: '...'; }
+          100% { content: ''; }
+        }
