@@ -16,7 +16,7 @@ var Onw3dViewer = function(model) {
       var d = document;
       var r = d.documentElement;
       var h = d.getElementsByTagName("head")[0];
-      var ASSETS_PATH = "assets/";
+      var ASSETS_PATH = "https://boathouse.github.io/v3/assets/";
       var objs = [];
       var _w = null;
       var l;
@@ -306,7 +306,7 @@ var Onw3dViewer = function(model) {
       this.hideAll();
       addAll();
 
-      viewer.setAttribute("src", "viewer.html");
+      viewer.setAttribute("src", "https://boathouse.github.io/v3/viewer.html");
       viewer.readyState ? viewer.onreadystatechange = function() {
         ("loaded" == viewer.readyState || "complete" == viewer.readyState) && (viewer.onreadystatechange = null, onReady())
       } : viewer.onload = function() { onReady(); };
