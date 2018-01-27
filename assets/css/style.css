@@ -490,7 +490,7 @@ html.onw3d_root body {
     margin:0;
 }
 
-.btn {
+.btnbtn {
     display:block;
     width:300px;
     color:#fff;
@@ -501,7 +501,7 @@ html.onw3d_root body {
     cursor:pointer;
 }
 
-.btn:hover {
+.btnbtn:hover {
     background:#111;
 }
 
