@@ -1,19 +1,19 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "BoatHouse3D",
+    "short_name": "BoatHouse3D",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "/assets/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "/assets/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "fullscreen"
 }
